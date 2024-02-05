@@ -1,0 +1,10 @@
+<h3>Post Details</h3>
+<div *ngIf="post | async as pos">
+    <div><b>Id : </b>{{pos.id}}</div>
+    <div><b>Title : </b>{{pos.title}}</div>
+    <div><b>Description : </b>{{pos.description}}</div>
+</div>
+<br>
+<div>
+    <a routerLink="/posts">Back to Posts</a>
+</div>

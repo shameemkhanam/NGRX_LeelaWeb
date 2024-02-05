@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Edit Post</h3>
+        <hr>
+        <form [formGroup]="editPostForm" (ngSubmit)="onEditPost()">
+            <div class="mb-3">
+                <label for="">Title</label>
+                <input formControlName="title" type="text" class="form-control">
+                <div *ngIf="editPostForm.get('title')?.touched && !editPostForm.get('title')?.valid">
+                    <small class="text-danger" *ngIf="editPostForm.get('title')?.errors?.['required']">Title is required.</small>
+                    <!-- <small *ngIf="addPostForm.get('title')?.errors?.['minlength']">Title is required.</small> -->
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Description</label>
+                <textarea formControlName="description" type="text" class="form-control"></textarea>
+                <small class="text-danger">{{showDescErrors()}}</small>
+            </div>
+
+            <div class="my-3">
+                <button type="submit" class="btn btn-primary" [disabled]="!editPostForm.valid">Update</button>
+            </div>
+            
+        </form>
+    </div>
